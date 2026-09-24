@@ -18,6 +18,13 @@ class Settings(BaseSettings):
     # Redis connection, used by the background job workers.
     redis_url: str = "redis://localhost:6379/0"
 
+    # Which AI provider app.services.llm routes calls to: "anthropic" or "gemini".
+    ai_provider: str = "gemini"
+    anthropic_api_key: str = ""
+    anthropic_model: str = "claude-sonnet-5"
+    gemini_api_key: str = ""
+    gemini_model: str = "gemini-2.5-pro"
+
     # Comma-separated list of origins allowed to call this API.
     cors_origins: str = "http://localhost:3000"
 
