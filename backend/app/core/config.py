@@ -8,12 +8,14 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    # Supabase client credentials. All database access goes through the
-    # Supabase client library, never a direct Postgres connection.
+    # Supabase client credentials, used for auth (JWT verification via JWKS).
     supabase_url: str
     supabase_publishable_key: str
     supabase_secret_key: str
     supabase_jwks_url: str
+
+    # Direct Postgres connection, used by SQLModel/Alembic for schema and queries.
+    database_url: str
 
     # Redis connection, used by the background job workers.
     redis_url: str = "redis://localhost:6379/0"
