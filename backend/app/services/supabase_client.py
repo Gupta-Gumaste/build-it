@@ -1,4 +1,4 @@
-"""Shared Supabase client. All database requests route through this client."""
+"""Shared Supabase client, used for auth. Table data goes through app.db.session instead."""
 
 from functools import lru_cache
 
